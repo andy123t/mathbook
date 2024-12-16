@@ -1,0 +1,184 @@
+% LaTeX response letter template
+
+\documentclass[11pt]{article}
+
+% Font setting
+\usepackage{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{charter}
+
+% Required packages
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{color,xcolor}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{geometry}
+\geometry{left=1.25in,right=1.25in,top=1in,bottom=1in}
+
+% allow page breaks between multiline formulas
+\allowdisplaybreaks
+
+% command for listsep
+\setlist{nolistsep}
+\setlist[itemize]{itemsep=3pt}
+\setlist[enumerate]{itemsep=3pt}
+
+% command for line spacing
+\renewcommand{\baselinestretch}{1.1}
+
+% define counters for reviewers and their points
+\newcounter{reviewer}
+\setcounter{reviewer}{0}
+\newcounter{point}[reviewer]
+\setcounter{point}{0}
+
+% package for section etc.
+\usepackage{titlesec}
+\titleformat{\section}{\centering\Large\bfseries}{\thesection}{}{}
+%\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{}{}
+
+% command declarations for reviewer comments and our responses
+\newcommand{\reviewersection}{%
+  \stepcounter{reviewer}%\bigskip\hrule height 0.5pt%
+  \section*{Reviewer~\raisebox{1.5pt}{\textsf{\large\#}}\thereviewer}%
+}
+
+% section divider line
+\newcommand{\sectionline}{\bigskip\hrule height 0.5pt}
+
+% define the point environment
+\newenvironment{point}[1][Comment]{%
+  \refstepcounter{point}\noindent%
+  \textbf{#1~\arabic{point}}:\enspace%
+  \ignorespaces%
+}{%
+  \par\smallskip%
+}
+
+% define the point* environment
+\newenvironment{answer}[1][Answer]{%
+  \noindent\textbf{#1}:\enspace\ignorespaces%
+}{%
+  \par\medskip%
+}
+
+
+% define maketitle environment
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 0.5em%
+  \leftline{Reply to the review report on}
+  \vskip 1.5em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\Large \bfseries \@title \par}%
+    \vskip 1.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1em%
+    {\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1.0em}
+\makeatother
+
+% graphical path
+\graphicspath{{./figures/}}
+
+% differential operator
+\newcommand{\dif}{\mathop{}\!\mathrm{d}}
+
+% new command
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dx}[1][x]{\mathop{}\!\mathrm{d}#1}
+\newcommand{\ii}{\mathrm{i}\mkern1mu}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+
+% information for title and author
+\title{Journal-001: The full title of the submitted paper}
+\author{by \quad \textsc{Author A} ~ and ~ \textsc{Author B}}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+
+%\section*{Response to Reviewer Comments}
+
+% General intro text goes here
+The authors thank the reviewers for their critical assessment of our work.
+In the following we address their concerns point by point.
+
+\reviewersection
+
+We much appreciate your careful reading and valuable comment. According to your review report, we have corrected the mistake and added further details as suggested. Our answer to your comment is as follows.
+
+\bigskip
+
+% comment
+\begin{point}\itshape
+This is Comment 1 from Reviewer \thereviewer.
+\end{point}
+
+\begin{answer}
+This is our response to Comment 1 from Reviewer \thereviewer.
+\end{answer}
+
+\medskip
+
+% comment
+\begin{point}\itshape
+This is Comment 2 from Reviewer \thereviewer.
+\end{point}
+
+\begin{answer}
+This is our response to Comment 2 from Reviewer \thereviewer. \\
+Please see page 5 of the revised version.
+\end{answer}
+
+\medskip
+\reviewersection
+
+We sincerely appreciate your careful review and valuable feedback. In response to your comments, we have corrected the mistake and included additional details as recommended. Below are our responses to your comments:
+
+\bigskip
+
+% comment
+\begin{point}\itshape
+This is Comment 1 from Reviewer \thereviewer.
+\end{point}
+
+\begin{answer}
+This is our response to Comment 1 from Reviewer \thereviewer.
+\end{answer}
+
+\medskip
+
+% comment
+\begin{point}\itshape
+This is Comment 2 from Reviewer \thereviewer.
+\end{point}
+
+\begin{answer}
+This is our response to Comment 2 from Reviewer \thereviewer.
+\end{answer}
+
+
+
+\end{document}
+
